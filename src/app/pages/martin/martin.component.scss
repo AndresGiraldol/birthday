@@ -147,9 +147,28 @@ span {
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: typing 3.5s steps(30, end);
+    animation: typing1 1s;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: 0.15em solid antiquewhite; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    //letter-spacing: 0.15em;
+    //margin: 0 auto;
+  }
+
+  h3 {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 50px;
+    font-size: 90px;
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(233, 230, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: typing2 1s;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
     white-space: nowrap; /* Keeps the content on a single line */
     //letter-spacing: 0.15em;
     //margin: 0 auto;
@@ -357,13 +376,21 @@ span {
 }
 
 /* The typing effect */
-@keyframes typing {
+@keyframes typing1 {
   from {
-    width: 0;
+    top: -241px;
   }
   to {
-    width: 100%;
-    border-right: 0;
+    top: 50px;
+  }
+}
+
+@keyframes typing2 {
+  from {
+    bottom: -241px;
+  }
+  to {
+    bottom: 50px;
   }
 }
 
@@ -379,4 +406,55 @@ span {
   100% {
     border: none;
   }
+}
+
+// butons
+
+.animate {
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}
+
+.action-button {
+  position: fixed;
+  padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  /* float: left; */
+  border-radius: 10px;
+  font-family: "Pacifico", cursive;
+  font-size: 25px;
+  color: #fff;
+  text-decoration: none;
+  bottom: 30px;
+  left: 50%;
+}
+
+.blue {
+  background-color: #3498db;
+  border-bottom: 5px solid #2980b9;
+  text-shadow: 0px -2px #2980b9;
+}
+
+.red {
+  background-color: #e74c3c;
+  border-bottom: 5px solid #bd3e31;
+  text-shadow: 0px -2px #bd3e31;
+}
+
+.green {
+  background-color: #82bf56;
+  border-bottom: 5px solid #669644;
+  text-shadow: 0px -2px #669644;
+}
+
+.yellow {
+  background-color: #f2cf66;
+  border-bottom: 5px solid #d1b358;
+  text-shadow: 0px -2px #d1b358;
+}
+
+.action-button:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  border-bottom: 1px solid;
 }
